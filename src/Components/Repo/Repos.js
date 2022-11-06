@@ -18,7 +18,7 @@ function Repos() {
   }, []);
   //   console.log(repos);
   return (
-    <div>
+    <div className="Repos">
       {/* try for SEO  */}
       <Helmet>
         <title>Repos</title>
@@ -31,9 +31,12 @@ function Repos() {
 
       {repos.length
         ? repos.map((repo) => (
-            <a href={`/${repo.name}`}>
-              <h1 key={repo.id}>this displays my {repo.full_name}</h1>
-            </a>
+            <div className="list-item">
+              <h3>{repo.name}</h3>
+              <a key={repo.id} href={`/repos/${repo.name}`}>
+                {/* <p key={repo.id}>{repo.name}</p> */}View Repo
+              </a>
+            </div>
           ))
         : "Loading..."}
 

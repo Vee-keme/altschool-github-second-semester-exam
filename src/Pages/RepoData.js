@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 //return repo details info after the repo is clicked in reposcard
 
 function RepoData() {
   let { repoName } = useParams();
   const [details, setDetails] = useState([]);
-
+  const navigate = useNavigate();
   // useEffect(() => {
   //   const fetchDetails = async () => {
   //     const response = await fetch(
@@ -27,7 +27,7 @@ function RepoData() {
       // console.log(res, repoName);
       setDetails(res.data);
     });
-  }, []);
+  }, [repoName]);
 
   return (
     <div>
