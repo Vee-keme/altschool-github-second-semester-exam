@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import "../App.css";
+import "../../App.css";
 import { useNavigate } from "react-router-dom";
-import RepoData from "../Pages/RepoData";
+import RepoData from "../../Pages/RepoData";
 
 export default function ReposCard(props) {
   //handle click for repo data
@@ -40,28 +40,6 @@ export default function ReposCard(props) {
         {currentItems.map((repo) => {
           console.log(repo.name);
           return (
-            // <>
-            //   {/* <RepoData key={repo.id} {...currentItems} />; */}
-            //   <p key={repo.id}>
-            //     {" "}
-            //     <a href={repo.owner.html_url}>{repo.name}</a>{" "}
-            //   </p>
-            //   <a href={repo.svn_url} target="_blank" rel="noreferrer">
-            //     click to view this particular repo in gh
-            //   </a>
-            //   <button
-            //     onClick={routeChange}
-            //     // onClick={() => {
-
-            //     //   //useNavigate to redirect to the page showing the repoData...
-            //     //   //   navigate("RepoData");
-            //     //   //   navigate({ RepoData });
-            //     //   //pass the "repo" as props for the <RepoData/> and see if this works
-            //     // }}
-            //   >
-            //     View Repo Data on this app
-            //   </button>
-            // </>
             <>
               <RepoData key={repo.id} repo={repo} />
             </>

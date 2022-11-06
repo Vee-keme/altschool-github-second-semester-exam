@@ -1,10 +1,10 @@
 import { Route, Routes, Link } from "react-router-dom";
 import { Home } from "./Pages/Home";
-import App33 from "./App33";
+import App33 from "./Components/Repo/App33";
 import RepoData from "./Pages/RepoData";
 import NotFound from "./Pages/NotFound";
 import { ErrorBoundary } from "react-error-boundary";
-import { ErrorFallback } from "./Components/ErrorFallback";
+import { ErrorFallback } from "./Pages/ErrorFallback";
 
 function App() {
   return (
@@ -17,11 +17,9 @@ function App() {
           <li>
             <Link to="/RepoData">List of Repos</Link>
           </li>
-          <li>
-            <Link to="repo/:repoName">Trying</Link>
-          </li>
         </ul>
       </nav>
+
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Routes>
           <Route path="/" element={<Home />} />

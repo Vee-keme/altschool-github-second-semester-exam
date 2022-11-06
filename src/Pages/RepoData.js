@@ -18,7 +18,7 @@ function RepoData({ repo }) {
   return (
     <div>
       {/* <a href={`/repo/${repo.name}`}>{repo.name}</a> */}
-      <h4>RepoData</h4>
+      <h4>RepoData Component</h4>
     </div>
   );
 }
