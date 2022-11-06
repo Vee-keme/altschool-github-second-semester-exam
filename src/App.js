@@ -1,10 +1,11 @@
 import { Route, Routes, Link } from "react-router-dom";
 import { Home } from "./Pages/Home";
-import App33 from "./Components/Repo/App33";
 import RepoData from "./Pages/RepoData";
 import NotFound from "./Pages/NotFound";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "./Pages/ErrorFallback";
+import ReposCard from "./Components/Repo/ReposCard";
+import Repos from "./Components/Repo/Repos";
 
 function App() {
   return (
@@ -15,16 +16,21 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/RepoData">List of Repos</Link>
+            <Link to="/repos">List of Repos</Link>
           </li>
         </ul>
       </nav>
+      {/* <main>
+        <Link to="/RepoData">Go to list of repos</Link>{" "}
+      </main> */}
 
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/RepoData" element={<RepoData />} /> */}
-          <Route path="repo/:repoName" element={<RepoData />} />
+          <Route path="/repos/:repodata" element={<RepoData />} />
+          <Route path="/reposcard" element={<ReposCard />} />
+          <Route path="/repos" element={<Repos />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ErrorBoundary>

@@ -12,6 +12,7 @@ export default function ReposCard(props) {
     navigate(path);
   };
   const { data } = props;
+  console.log(data);
 
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);

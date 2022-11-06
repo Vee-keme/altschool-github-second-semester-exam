@@ -1,24 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 //return repo details info after the repo is clicked in reposcard
-function RepoData({ repo }) {
+function RepoData() {
   const { repoName } = useParams();
   const [details, setDetails] = useState([]);
 
+  // useEffect(() => {
+  //   const fetchDetails = async () => {
+  //     const response = await fetch(
+  //       `https://api.github.com/repos/Vee-keme/${repoName}`
+  //     );
+  //     const data = await response.json();
+  //     setDetails(data);
+  //     console.log(data);
+  //   };
+  //   fetchDetails();
+  // }, [repoName]);
+
   useEffect(() => {
-    const fetchDetails = async () => {
-      const response = await fetch(
-        `https://api.github.com/repos/Vee-keme/${repoName}`
-      );
-      const data = await response.json();
-      setDetails(data);
-    };
-    fetchDetails();
+    axios({
+      method: "get",
+      url: `https://api.github.com/repos/Vee-keme/${repoName}`,
+    }).then((res) => {
+      console.log(res, repoName);
+      setDetails(res.data);
+    });
   }, []);
+
+  // console.log(data);
   return (
     <div>
-      {/* <a href={`/repo/${repo.name}`}>{repo.name}</a> */}
-      <h4>RepoData Component</h4>
+      {details.length ? (
+        <div>
+          <p>{details.name}</p>
+        </div>
+      ) : (
+        "Loading..."
+      )}
+      {/* <h2>heading</h2> */}
     </div>
   );
 }
