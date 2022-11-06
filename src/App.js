@@ -6,6 +6,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallback } from "./Pages/ErrorFallback";
 import ReposCard from "./Components/Repo/ReposCard";
 import Repos from "./Components/Repo/Repos";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   return (
@@ -23,17 +24,18 @@ function App() {
       {/* <main>
         <Link to="/RepoData">Go to list of repos</Link>{" "}
       </main> */}
+      <HelmetProvider>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path=":repodata" element={<RepoData />} />
+            <Route path="/reposcard" element={<ReposCard />} />
+            <Route path="/repos" element={<Repos />} />
 
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/repos/:repodata" element={<RepoData />} />
-          <Route path="/reposcard" element={<ReposCard />} />
-          <Route path="/repos" element={<Repos />} />
-
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </ErrorBoundary>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </ErrorBoundary>
+      </HelmetProvider>
     </div>
   );
 }
