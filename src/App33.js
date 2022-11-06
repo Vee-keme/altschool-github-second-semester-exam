@@ -17,16 +17,11 @@ function App33() {
   //   console.log(repos);
   return (
     <div>
+      {repos.map((repo) => {
+        <h1>this displays my {repo.owner.login}repo list</h1>;
+      })}
+
       <ReposCard data={repos} />
-      {/* {repos.map((repo) => {
-        console.log(repo.name);
-        return (
-          <p key={repo.id}>
-            {" "}
-            <a href={repo.owner.html_url}>{repo.name}</a>{" "}
-          </p>
-        );
-      })} */}
     </div>
   );
 }
