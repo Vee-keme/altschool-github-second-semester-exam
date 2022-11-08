@@ -28,9 +28,14 @@ function App() {
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path=":repodata" element={<RepoData />} />
-          {/* <Route path="/reposcard" element={<ReposCard />} /> */}
-          <Route path="/repos" element={<Repos />} />
+          {/* <Route path="/repos/:repoName" element={<RepoData />} />
+          <Route path="/repos" element={<Repos />} /> */}
+
+          {/* use nested routing like so */}
+          <Route path="/repos">
+            <Route index element={<Repos />} />
+            <Route path=":repoName" element={<RepoData />} />
+          </Route>
 
           <Route path="*" element={<NotFound />} />
         </Routes>
