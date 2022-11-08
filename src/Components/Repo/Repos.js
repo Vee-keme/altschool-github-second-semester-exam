@@ -50,8 +50,9 @@ function Repos() {
           <meta name="description" content="Github Repos" />
           <meta
             name="keywords"
-            content="react-helmet, altschool africa, github repos,"
+            content="react-helmet, altschool africa, github repos, list of repos"
           />
+          <link rel="canonical" href="/repos" />
         </Helmet>
 
         {repos.length ? currentPageData : "Loading..."}
