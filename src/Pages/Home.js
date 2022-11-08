@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+
+import { useNavigate } from "react-router-dom";
 export function Home() {
+  const navigate = useNavigate();
   return (
     <div className="Home">
       <Helmet>
@@ -18,9 +21,10 @@ export function Home() {
       </h1>
       <h2>Welcome to my REPOLIST app</h2>
       <p>click the button below to see the magic</p>
-      <Link className="" to="/repos">
+      {/* <Link className="" to="/repos">
         Click me
-      </Link>
+      </Link> */}
+      <button onClick={() => navigate("/repos")}>Click me</button>
     </div>
   );
 }

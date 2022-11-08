@@ -46,6 +46,7 @@ function RepoData() {
       ) : (
         "Loading..."
       )}
+      <button onClick={() => navigate("/repos")}>Back to Repo List</button>
     </div>
   );
 }
